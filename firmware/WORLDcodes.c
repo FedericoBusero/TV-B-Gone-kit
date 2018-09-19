@@ -2,9 +2,11 @@
 #include <avr/pgmspace.h>
 #include "main.h"
 
+#define EU_CODES
+#define NA_CODES
+
 //Codes captured from Generation 3 TV-B-Gone by Limor Fried & Mitch Altman
 // table of POWER codes
-
 
 #ifdef NA_CODES
 const uint16_t code_na000Times[] PROGMEM = {
@@ -13,20 +15,22 @@ const uint16_t code_na000Times[] PROGMEM = {
         120, 60,
         240, 60,
 };
+
+const uint8_t code_na000Codes[] PROGMEM = {
+  0xE2,
+  0x20,
+  0x80,
+  0x78,
+  0x88,
+  0x20,
+  0x10,
+};
 const struct IrCode code_na000Code PROGMEM = {
-        freq_to_timerval(38400),
-        26,             // # of pairs
-        2,              // # of bits per index
-        code_na000Times,
-        {
-                0xE2,
-                0x20,
-                0x80,
-                0x78,
-                0x88,
-                0x20,
-                0x10,
-        }
+  freq_to_timerval(38400),
+  26,             // # of pairs
+  2,              // # of bits per index
+  code_na000Times,
+  code_na000Codes
 };
 
 const uint16_t code_na001Times[] PROGMEM = {
@@ -8519,4 +8523,3 @@ const struct IrCode * const EUpowerCodes[] PROGMEM = {
 
 const uint8_t num_NAcodes = NUM_ELEM(NApowerCodes);
 const uint8_t num_EUcodes = NUM_ELEM(EUpowerCodes);
-
