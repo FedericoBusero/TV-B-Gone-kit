@@ -78,8 +78,8 @@ The hardware for this project is very simple:
 
 
 
-extern const PGM_P * const NApowerCodes[] PROGMEM;
-extern const PGM_P * const EUpowerCodes[] PROGMEM;
+extern PGM_P * const NApowerCodes[] PROGMEM;
+extern PGM_P * const EUpowerCodes[] PROGMEM;
 extern const uint8_t num_NAcodes, num_EUcodes;
 
 
@@ -183,8 +183,6 @@ Subsequent reads from the powerCode are n bits (same as the packing size)
 that index into another table in ROM that actually stores the on/off times
       const PGM_P time_ptr = (PGM_P)pgm_read_word(code_ptr);
 */
-
-
 int main(void) {
   uint16_t ontime, offtime;
   uint8_t i,j, Loop;
@@ -268,7 +266,7 @@ int main(void) {
 
       // Get pointer (address in memory) to pulse-times table
       // The address is 16-bits (2 byte, 1 word)
-      const PGM_P time_ptr = (PGM_P)pgm_read_word(code_ptr);
+      PGM_P time_ptr = (PGM_P)pgm_read_word(code_ptr);
       code_ptr+=2;
 
       // Transmit all codeElements for this POWER code 
