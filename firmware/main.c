@@ -65,7 +65,7 @@ The hardware for this project is very simple:
                and also connects to programming circuitry
        pin 6   Region selector. Float for US, 10K pulldown for EU,
                also connects to programming circuitry
-       pin 7   PB0 - visible LED, and also connects to programming circuitry
+       pin 7   PB2 - visible LED, and also connects to programming circuitry
        pin 8   +3-5v DC (such as 2-4 AA batteries!)
     See the schematic for more details.
 
